@@ -1,0 +1,7 @@
+<launch>
+
+    <node pkg="rpi_car_line_follower" type="ir_sensor_node.py" name="ir_sensor_node" />
+
+    <node pkg="rpi_car_line_follower" type='rpi_car_main_node.py' name="rpi_car_main_node" />
+
+</launch>
