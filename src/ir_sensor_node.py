@@ -14,8 +14,8 @@ def ir_sensor_node():
     rospy.init_node('ir_sensor_node', anonymous=True)
 
     # Set the loop rate
-    rate = rospy.Rate(10) #2 hz 
-    
+    rate = rospy.Rate(30) #30 hz
+
     #--- 'Keep publishing until Ctrl-C is pressed'
     while not rospy.is_shutdown():
         ir_sensor = IrSensor()
@@ -24,8 +24,8 @@ def ir_sensor_node():
         ir_sensor.ir3 = GPIO.input(15)
         ir_sensor.ir4 = GPIO.input(16)
         ir_sensor.ir5 = GPIO.input(18)
-
-	#
+        # rospy.loginfo("Publishing ir sensors:")
+        # rospy.loginfo(ir_sensor)
         pub.publish(ir_sensor)
         rate.sleep()
 
@@ -36,14 +36,12 @@ if __name__ == '__main__':
         GPIO.setwarnings(False)
 
         # Setup GPIO pins for 'infrared sensor'
-        # rename the pins??
         GPIO.setup(11, GPIO.IN)
         GPIO.setup(13, GPIO.IN)
         GPIO.setup(15, GPIO.IN)
         GPIO.setup(16, GPIO.IN)
         GPIO.setup(18, GPIO.IN)
 
-        # while not rospy.is_shutdown():
         # 'Run ir sensor node'
         ir_sensor_node()
 
@@ -53,8 +51,4 @@ if __name__ == '__main__':
     finally:
         GPIO.cleanup()
 
-        # need a good check for the try loop. 
-        # play with loop rate so that data fed has enough time to be processed
-        # and it isn't too slow as well
-        
-        # Comment well
+        # COMMENTS
