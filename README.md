@@ -3,3 +3,5 @@ A 2-wheel drive car, controlled by a Raspberry Pi 4 running Robot Operating Syst
 
 
 ## Rqt graph
+
+Reference motor drive code, sensors used. Make as informed as possible.
