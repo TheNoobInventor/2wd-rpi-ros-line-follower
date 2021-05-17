@@ -4,7 +4,6 @@
 import rospy
 from rpi_car_line_follower.msg import IrSensor
 from PCA9685 import PCA9685
-from time import sleep 
 
 #---- Motor driver setup
 pwm = PCA9685(0x40, debug=False)
@@ -20,6 +19,7 @@ class MotorDriver():
         self.BIN1 = 3
         self.BIN2 = 4
 
+    #
     def MotorRun(self, motor, index, speed):
         if speed > 100:
             return
@@ -61,77 +61,62 @@ def infra_readings_callback(ir_sensor_data):
             ir reading of 1 - white 'surface'
     """
     if (ir_1 == 1 and ir_2 == 1 and ir_3 == 0 and ir_4 == 1 and ir_5 == 1):
-        # Motor.MotorStop(0)
-        # Motor.MotorStop(1)
         # Move robot forward
-        rospy.loginfo("Move robot forward")
-        Motor.MotorRun(0, 'forward', 80)
-        Motor.MotorRun(1, 'forward', 80)
-    elif (ir_1 == 1 and ir_2 == 0 and ir_3 == 0 and ir_4 == 1 and ir_5 == 1):
-        # Motor.MotorStop(0)
-        # Motor.MotorStop(1)
-    #     # Move robot slightly left
-    #     rospy.loginfo("Move robot slightly left")
-        Motor.MotorRun(0, 'forward', 75)
-        Motor.MotorRun(1, 'forward', 80)
-    elif (ir_1 == 1 and ir_2 == 0 and ir_3 == 1 and ir_4 == 1 and ir_5 == 1):
-        # Motor.MotorStop(0)
-        # Motor.MotorStop(1)
-    #     # Move robot further to the left 
-    #     rospy.loginfo("Move robot further to the left")
-        Motor.MotorRun(0, 'forward', 67)
-        Motor.MotorRun(1, 'forward', 75)
-    elif (ir_1 == 0 and ir_2 == 0 and ir_3 == 1 and ir_4 == 1 and ir_5 == 1):
-        # Motor.MotorStop(0)
-        # Motor.MotorStop(1)
-    #     # Move robot even further to the left, slowing down rotation on the left 
-    #     rospy.loginfo("Move robot even further to the left")
-        Motor.MotorRun(0, 'forward', 39)
-        Motor.MotorRun(1, 'forward', 80)
-    elif (ir_1 == 0 and ir_2 == 1 and ir_3 == 1 and ir_4 == 1 and ir_5 == 1):
-        # Motor.MotorStop(0)
-        # Motor.MotorStop(1)
-    #     # Move robot left, rotation about left wheel
-    #     rospy.loginfo("Move robot left, rotation about left wheel")
-        Motor.MotorRun(0, 'forward', 0)
-        Motor.MotorRun(1, 'forward', 60)
-    elif (ir_1 == 1 and ir_2 == 1 and ir_3 == 0 and ir_4 == 0 and ir_5 == 1):
-        # Motor.MotorStop(0)
-        # Motor.MotorStop(1)
-    #     # Move robot slightly right
-    #     rospy.loginfo("Move robot slightly right")
-        Motor.MotorRun(0, 'forward', 80)
-        Motor.MotorRun(1, 'forward', 75)
-    elif (ir_1 == 1 and ir_2 == 1 and ir_3 == 1 and ir_4 == 0 and ir_5 == 1):
-        # Motor.MotorStop(0)
-        # Motor.MotorStop(1)
-    #     # Move robot further to the right 
-    #     rospy.loginfo("Move robot further to the right")
-        Motor.MotorRun(0, 'forward', 80)
-        Motor.MotorRun(1, 'forward', 65)
-    elif (ir_1 == 1 and ir_2 == 1 and ir_3 == 1 and ir_4 == 0 and ir_5 == 0):
-        # Motor.MotorStop(0)
-        # Motor.MotorStop(1)
-    #     # Move robot even further to the right, slowing down rotation on the right 
-    #     rospy.loginfo("Move robot even further to the right")
         Motor.MotorRun(0, 'forward', 70)
-        Motor.MotorRun(1, 'forward', 25)
+        Motor.MotorRun(1, 'forward', 70)
+    elif (ir_1 == 1 and ir_2 == 0 and ir_3 == 0 and ir_4 == 1 and ir_5 == 1):
+        # Move robot slightly left
+        Motor.MotorRun(0, 'forward', 65)
+        Motor.MotorRun(1, 'forward', 70)
+    elif (ir_1 == 1 and ir_2 == 0 and ir_3 == 1 and ir_4 == 1 and ir_5 == 1):
+        # Move robot further to the left 
+        Motor.MotorRun(0, 'forward', 50)
+        Motor.MotorRun(1, 'forward', 70)
+    elif (ir_1 == 0 and ir_2 == 0 and ir_3 == 1 and ir_4 == 1 and ir_5 == 1):
+        # Move robot even further to the left, slowing down rotation on the left 
+        Motor.MotorRun(0, 'forward', 25)
+        Motor.MotorRun(1, 'forward', 70)
+    elif (ir_1 == 0 and ir_2 == 1 and ir_3 == 1 and ir_4 == 1 and ir_5 == 1):
+        # Move robot left, rotation about left wheel
+        Motor.MotorRun(0, 'forward', 10)
+        Motor.MotorRun(1, 'forward', 70)
+    elif (ir_1 == 1 and ir_2 == 1 and ir_3 == 0 and ir_4 == 0 and ir_5 == 1):  
+        # Move robot slightly right
+        Motor.MotorRun(0, 'forward', 70)
+        Motor.MotorRun(1, 'forward', 65)
+    elif (ir_1 == 1 and ir_2 == 1 and ir_3 == 1 and ir_4 == 0 and ir_5 == 1):
+        # Move robot further to the right 
+        Motor.MotorRun(0, 'forward', 70)
+        Motor.MotorRun(1, 'forward', 50)
+    elif (ir_1 == 1 and ir_2 == 1 and ir_3 == 1 and ir_4 == 0 and ir_5 == 0):
+        # Move robot even further to the right, slowing down rotation on the right 
+        Motor.MotorRun(0, 'forward', 70)
+        Motor.MotorRun(1, 'forward', 30)
     elif (ir_1 == 1 and ir_2 == 1 and ir_3 == 1 and ir_4 == 1 and ir_5 == 0):
-        # Motor.MotorStop(0)
-        # Motor.MotorStop(1)
-    #     # Move robot right, rotation about right wheel
-    #     rospy.loginfo("Move robot right, rotation about right wheel")
+        # Move robot right, rotation about right wheel
+        Motor.MotorRun(0, 'forward', 70)
+        Motor.MotorRun(1, 'forward', 15)
+    elif (ir_1 == 0 and ir_2 == 0 and ir_3 == 0 and ir_4 == 1 and ir_5 == 1):
+        # Additional robot move for figure 8 track
         Motor.MotorRun(0, 'forward', 70)
         Motor.MotorRun(1, 'forward', 10)
+    elif (ir_1 == 0 and ir_2 == 0 and ir_3 == 0 and ir_4 == 0 and ir_5 == 1):
+        # Additional robot move for figure 8 track
+        Motor.MotorRun(0, 'forward', 20)
+        Motor.MotorRun(1, 'forward', 70)
+    elif (ir_1 == 1 and ir_2 == 1 and ir_3 == 0 and ir_4 == 0 and ir_5 == 0):
+        # Additional robot move for figure 8 track
+        Motor.MotorRun(0, 'forward', 70)
+        Motor.MotorRun(1, 'forward', 45)
+    elif (ir_1 == 1 and ir_2 == 0 and ir_3 == 0 and ir_4 == 0 and ir_5 == 1):
+        # Additional robot move for figure 8 track
+        Motor.MotorRun(0, 'forward', 45)
+        Motor.MotorRun(1, 'forward', 70)
     elif (ir_1 == 0 and ir_2 == 0 and ir_3 == 0 and ir_4 == 0 and ir_5 == 0):
         # Stop Motors
         rospy.loginfo("Stop motors")
         Motor.MotorStop(0)
         Motor.MotorStop(1)
-
-        # it identifies black points as white. Possible to calibrate?
-        # Later adapt to randomizing movement? For now testing using moving
-        # a bit right
     
     # Change description of different sensor robot movement modes
     # Sort 'forward' and 'backward' and adjust motor driver class accordingly
@@ -145,26 +130,32 @@ def rpi_car_main():
         # Subscribe to infrared_readings topic
         rospy.Subscriber('infra_readings', IrSensor, infra_readings_callback)
 
+        #
         rospy.spin()
 
 if __name__ == '__main__':
-    # Initialize motor driver 
+    # Initialize motor driver
     Motor = MotorDriver()
 
     while not rospy.is_shutdown():
         try:
-            # 
             rpi_car_main()
         except rospy.ROSInterruptException:
             pass
     Motor.MotorStop(0)
     Motor.MotorStop(1)
 
-# change name of file or?
+# COMMENTS!!
 
-# Comment well
+# Still need to tune the clockwise movement, anti-clockwise movemnt is fine
+
+# Talk about figure 8 track
 
 # rename names in launch files
 
-# Further additions
+# explain how we got the figures in the end
+
+# Further additions/suggestions
+
+# Randomize figure 8 movement so that it doesn't always turn to the right or left. Or?
 # add camera to stream the view
