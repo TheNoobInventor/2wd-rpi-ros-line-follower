@@ -4,4 +4,9 @@ A 2-wheel drive car, controlled by a Raspberry Pi 4 running Robot Operating Syst
 
 ## Rqt graph
 
+<p align="center">
+  <img src=images/bitcoin_ticker_fritz.png>
+</p>
+
+
 Reference motor drive code, sensors used. Make as informed as possible.
