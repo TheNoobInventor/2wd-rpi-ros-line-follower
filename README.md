@@ -4,10 +4,12 @@ A 2-wheel drive car, controlled by a Raspberry Pi 4 running Robot Operating Syst
 
 ## Hardware
 
+show pictures of infrared sensor used
+
 ## Software architecture
 
 
-## Setup (redundant?)
+## Setup/installation (redundant?)
 ROS1 Noetic
 
 
