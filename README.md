@@ -15,6 +15,8 @@ Installation procedure. Test out with Docker container and update this section.
 
 ### Launch file
 
+### Custom message
+
 ## Rqt graph
 
 <p align="center">
