@@ -30,7 +30,7 @@ Installation procedure. Test out with Docker container and update this section.
 ## "Videos"
 
 
-# Trial and error to obtain motor driver figures 
+Trial and error to obtain motor driver figures 
 
 
 Reference motor drive code, sensors used. Make as informed as possible.
