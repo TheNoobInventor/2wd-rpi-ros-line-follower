@@ -146,16 +146,3 @@ if __name__ == '__main__':
     Motor.MotorStop(1)
 
 # COMMENTS!!
-
-# Still need to tune the clockwise movement, anti-clockwise movemnt is fine
-
-# Talk about figure 8 track
-
-# rename names in launch files
-
-# explain how we got the figures in the end
-
-# Further additions/suggestions
-
-# Randomize figure 8 movement so that it doesn't always turn to the right or left. Or?
-# add camera to stream the view
