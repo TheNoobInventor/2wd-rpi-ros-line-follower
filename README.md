@@ -1,36 +1,53 @@
-# 2wd-rpi-ros-line-follower
+# Overview
 A 2-wheel drive car, controlled by a Raspberry Pi 4 running Robot Operating System (ROS1) Noetic, is used as a line following robot; it follows a black line against a white background, with the aid of a 5 channel infrared sensor.
 
 (To be completed)
 
 ## Hardware
 
-show pictures of infrared sensor used
+### Components
+This also includes tools and misc like double sided tape
 
-## Software and setup
+Pictures of some components/sensors
+
+### Assembly
+Notes about assembly. Some observations too
+Pictures of the assembled stuff
+
+## Software
+
+### Software architecture
+Software used
 Raspbery OS
 ROS1 Noetic
 
+### Software install/setup
+how to download and run the code
 Installation procedure. Test out with Docker container and update this section.
 
 ### Launch file
 
 ### Custom message
 
-## Rqt graph
+### Rqt graph
 
 <p align="center">
   <img src=images/rosgraph.png>
 </p>
 
-## "Images"
+## Track
 
-### Tracks
+## Video
 
-## "Videos"
+## Observations
+
+## Future work/suggestions
+
+## References
+Reference motor drive code, sensors used etc.
 
 
-Trial and error to obtain motor driver figures 
 
 
-Reference motor drive code, sensors used. Make as informed as possible.
+
+
