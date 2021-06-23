@@ -59,6 +59,8 @@ Installation procedure. Test out with Docker container and update this section.
 
 ## Observations
 
+Initial width of line was too thin, had to widen it using duck tape to enable the ir sensor to read the line well.
+
 ## Future work/suggestions
 
 ## References
