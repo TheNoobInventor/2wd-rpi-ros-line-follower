@@ -14,12 +14,12 @@ Pictures of some components/sensors
 Notes about assembly; gpio pins assembly etc. Some observations too
 
 <p align="center">
-  <img src=images/side.jpg width="500">
+  <img src=images/side.jpg width="450">
 </p>
 
-<p float="left">
-  <img src=images/top.jpg width="500"> 
-  <img src=images/bottom.jpg width="500">
+<p float="center">
+  <img src=images/top.jpg width="450"> 
+  <img src=images/bottom.jpg width="450">
 </p>
 
 ## Software
