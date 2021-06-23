@@ -6,7 +6,7 @@ A 2-wheel drive car, controlled by a Raspberry Pi 4 running Robot Operating Syst
 ## Hardware
 
 ### Components
-This also includes tools and misc like double sided tape
+This also includes tools and misc like double sided tape, duck tape
 
 Pictures of some components/sensors
 
