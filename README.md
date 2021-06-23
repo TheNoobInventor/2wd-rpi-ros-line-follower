@@ -35,9 +35,15 @@ Installation procedure. Test out with Docker container and update this section.
   <img src=images/rosgraph.png>
 </p>
 
-## Track
+## Tracks
 
-## Video
+<p float="center">
+  <img src=images/round_track.jpg width="500"> 
+  <img src=images/fig_8.jpg width="500">
+ </p>
+
+
+## Video demonstration
 
 ## Observations
 
