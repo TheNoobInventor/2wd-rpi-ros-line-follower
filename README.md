@@ -51,8 +51,8 @@ Installation procedure. Test out with Docker container and update this section.
 ## Tracks
 
 <p float="left">
-  <img src=images/round_track.jpg width="500"> 
-  <img src=images/fig_8.jpg width="500">
+  <img src=images/round_track.jpg width="400"> 
+  <img src=images/fig_8.jpg width="400">
 </p>
 
 ## Video demonstration
