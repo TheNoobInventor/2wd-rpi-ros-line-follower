@@ -11,7 +11,7 @@ This also includes tools and misc like double sided tape, duck tape
 Pictures of some components/sensors
 
 ### Assembly
-Notes about assembly. Some observations too
+Notes about assembly; gpio pins assembly etc. Some observations too
 
 <p align="center">
   <img src=images/side.jpg width="500">
