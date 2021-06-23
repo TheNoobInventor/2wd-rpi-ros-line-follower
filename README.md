@@ -14,7 +14,7 @@ Pictures of some components/sensors
 Notes about assembly. Some observations too
 
 <p align="center">
-  <img src=images/side.jpg>
+  <img src=images/side.jpg width="500">
 </p>
 
 <p float="left">
