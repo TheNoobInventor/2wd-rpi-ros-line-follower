@@ -12,7 +12,15 @@ Pictures of some components/sensors
 
 ### Assembly
 Notes about assembly. Some observations too
-Pictures of the assembled stuff
+
+<p align="center">
+  <img src=images/side.jpg>
+</p>
+
+<p float="left">
+  <img src=images/top.jpg width="500"> 
+  <img src=images/bottom.jpg width="500">
+</p>
 
 ## Software
 
@@ -40,8 +48,7 @@ Installation procedure. Test out with Docker container and update this section.
 <p float="left">
   <img src=images/round_track.jpg width="500"> 
   <img src=images/fig_8.jpg width="500">
- </p>
-
+</p>
 
 ## Video demonstration
 
