@@ -1,4 +1,4 @@
-# 2 Wheeled Drive Raspberry Pi Line Follower runnnig ROS1 Noetic
+# 2 Wheeled Drive Raspberry Pi Line Follower running ROS1 Noetic
 A 2-wheel drive car, controlled by a Raspberry Pi 4 running Robot Operating System (ROS1) Noetic, is used as a line following robot; it follows a black line against a white background, with the aid of a 5 channel infrared sensor.
 
 (To be completed)
@@ -9,6 +9,11 @@ A 2-wheel drive car, controlled by a Raspberry Pi 4 running Robot Operating Syst
 This also includes tools and misc like double sided tape, duck tape
 
 Pictures of some components/sensors
+
+<p float="center">
+  <img src=images/ir_front.jpg width="400"> 
+  <img src=images/ir_back.jpg width="400">
+</p>
 
 ### Assembly
 Notes about assembly; gpio pins assembly etc. Some observations too
