@@ -1,0 +1,21 @@
+site_name: 2 Wheeled Drive Raspberry Pi Line Follower running ROS1 Noetic
+site_url: https://example.com/
+
+theme:
+  name: material
+  palette:
+    - scheme: default
+      primary: teal
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Switch to dark mode
+    - scheme: slate
+      primary: teal
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to light mode
+repo_url: https://github.com/TheNoobInventor/2wd-rpi-ros-line-follower
+repo_name: TheNoobInventor/2wd-rpi-ros-line-follower
+plugins:
+  - search:
+      lang: en
