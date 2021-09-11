@@ -11,7 +11,7 @@ This also includes tools and misc like double sided tape, duck tape
 Pictures of some components/sensors
 
 <p float="center">
-  <img src=images/ir_front.jpg width="400"> 
+  <img src=images/ir_front.jpg width="400">
   <img src=images/ir_back.jpg width="400">
 </p>
 
@@ -20,7 +20,7 @@ Notes about assembly; gpio pins assembly etc. Some observations too
 
 <p float="center">
   <img src=images/side.jpg width="400">
-  <img src=images/top.jpg width="400"> 
+  <img src=images/top.jpg width="400">
   <img src=images/bottom.jpg width="400">
 </p>
 
@@ -32,6 +32,7 @@ Raspbery OS
 ROS1 Noetic
 
 ### Software install/setup
+Link to how to install ros noetic on Raspbery pi 4. That Nurgaliyev Shakhizat article on hackster.io about lidar integration
 how to download and run the code
 Installation procedure. Test out with Docker container and update this section.
 
@@ -48,7 +49,7 @@ Installation procedure. Test out with Docker container and update this section.
 ## Tracks
 
 <p float="left">
-  <img src=images/round_track.jpg width="400"> 
+  <img src=images/round_track.jpg width="400">
   <img src=images/fig_8.jpg width="400">
 </p>
 
@@ -61,5 +62,4 @@ Initial width of line was too thin, had to widen it using duck tape to enable th
 ## Future work/suggestions
 
 ## References
-Reference motor drive code, sensors used etc.
-
+Reference motor drive and code used, sensors used etc.

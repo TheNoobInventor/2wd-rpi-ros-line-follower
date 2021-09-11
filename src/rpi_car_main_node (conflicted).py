@@ -78,8 +78,9 @@ def infra_readings_callback(ir_sensor_data):
         Motor.MotorStop(0)
         Motor.MotorStop(1)
     
-# Main function
-def main():
+    # Change description of different sensor robot movement modes
+#
+def rpi_car_main():
 
     # Initialize 'rpi_car_main_node'
     rospy.init_node('rpi_car_main_node', anonymous=True)        
@@ -97,10 +98,10 @@ if __name__ == '__main__':
 
     while not rospy.is_shutdown():
         try:
-            main()
+            rpi_car_main()
         except rospy.ROSInterruptException:
             pass
     
     # Stop motors after the node is shutdown
     Motor.MotorStop(0)
-    Motor.MotorStop(1)    
+    Motor.MotorStop(1)

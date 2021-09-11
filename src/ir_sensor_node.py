@@ -1,12 +1,13 @@
 #!/usr/bin/env python
 
-# Import packages
+#--- Import packages
 import rospy
 from rpi_car_line_follower.msg import IrSensor
 import RPi.GPIO as GPIO
 
-#
-def ir_sensor_node():
+#--- Main function
+def main():
+
     # Create publisher (topic, message type, queue/buffer size)
     pub = rospy.Publisher('infra_readings', IrSensor, queue_size=10)
 
@@ -16,7 +17,7 @@ def ir_sensor_node():
     # Set the loop rate
     rate = rospy.Rate(30) #30 hz
 
-    #--- 'Keep publishing until Ctrl-C is pressed'
+    # Keep publishing until node is shutdown or ctrl-C is pressed
     while not rospy.is_shutdown():
         ir_sensor = IrSensor()
         ir_sensor.ir1 = GPIO.input(11)
@@ -42,13 +43,12 @@ if __name__ == '__main__':
         GPIO.setup(16, GPIO.IN)
         GPIO.setup(18, GPIO.IN)
 
-        # 'Run ir sensor node'
-        ir_sensor_node()
+        # Run main function
+        main()
 
     except rospy.ROSInterruptException:
         pass
-
+    
+    # Clean up GPIO pins 
     finally:
         GPIO.cleanup()
-
-        # COMMENTS
