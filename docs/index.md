@@ -15,6 +15,7 @@ The components used in this project are as follows:
 - 2 x alligator clip cables 
 - Powerbank rated at least 5V and 3A with USB type-A to USB-type C cable to power RPi
 - Wires - to connect motors to motor driver HAT
+- Track(s) for robot to follow
 - Screwdriver set
 - Double-sided tape
 - Duck tape
@@ -57,53 +58,52 @@ The fully assembled robot is shown in the following images:
 ### Software architecture
 **Raspberry Pi OS** is the operating system used on the Raspberry Pi 4. The download and installation procedure can be found [here](https://www.raspberrypi.org/software/). ROS 1 Noetic is the version of ROS used in this project and can be installed following this [guide](https://www.hackster.io/shahizat005/lidar-integration-with-ros-noetic-on-raspberry-pi-os-8ea140).
 
-**Python 3** and .
+### Package install and setup
 
-### Software install/setup
+Once Raspberry Pi OS and ROS Noetic have been successfully setup, the next step is to download and setup the ROS package in this repository. 
 
-how to download and run the code
-Installation procedure.
-
-clone repo in catkin_ws src folder:
+Navigate to the source folder in your ROS workspace (```ros_catkin_ws/src``` in my case) and clone this repository by executing the following command in the terminal:
 ```
 git clone https://github.com/TheNoobInventor/2wd-rpi-ros-line-follower.git
 ```
-enable i2c interface. Do graphically by clicking on rpi home button, going to preferences -> raspberry pi configuration -> i2c -> enable. Then reboot device.
+The motor driver HAT uses Inter-Integrated Circuit (I2C) serial interface to communicate with the Raspberry Pi. This interface needs to be enabled in Raspberry Pi OS, as it is disabled by default. To do this, click on the ***RPi Home*** button, navigate to ***Preferences***, then ***Raspberry Pi Configuration*** to ***I2C*** and finally click on the ***Enable*** radio button. Then reboot the RPi for this change to be effected.
 
-From terminal:
-```
-sudo raspi-config 
-```
--> interface options  -> i2c
-
+#### Build package
+---
 go one step up and build packages:
 ```
 catkin_make
 ```
+#### Custom message
+---
+IrSensor.msg in msg folder for the infrared sensor data
+
+#### Run package nodes
+---
+pip3 install rospkg (not everyone might need to do this)
+pip3 install smbus (explain what it is)
 
 Talk about a bit about the directory structure...where the files can be found...which one is the main what the other files do etc
+
+written in **Python 3**
 
 chmod the executables
 ```
 chmod +x ir_sensor_node.py rpi_car_main_node.py PCA9685.py motor.py
 ```
 
-pip3 install rospkg (not everyone might need to do this)
-pip3 install smbus (explain what it is)
-
-
 echo topic before cutting to the car video (might need a brief video showing the sensors work over a white and black surface or?)
 
-rostopic echo /infra_readings
+make use of launch file
 
-### Launch file
+
 launch file--say where it is, what nodes it launches and all. or should we just output the file contents here?
 
 ```
 roslaunch rpi_car_line_follower rpi_car.launch
 ```
 
-### Custom message
+rostopic echo /infra_readings
 
 ### Rqt graph
 

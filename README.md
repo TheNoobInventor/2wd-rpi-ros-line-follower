@@ -1,6 +1,4 @@
-![example workflow](https://github.com/github/docs/actions/workflows/main.yml/badge.svg)
-
-![Mkdocs workflow](https://github.com/TheNoobInventor/2wd-rpi-ros-line-follower/.github/workflows/main.yml/badge.svg)
+![Mkdocs workflow](https://github.com/TheNoobInventor/2wd-rpi-ros-line-follower/actions/workflows/.github/workflows/main.yml/badge.svg)
 
 
 # 2 Wheeled Drive Raspberry Pi Line Follower running ROS1 Noetic
