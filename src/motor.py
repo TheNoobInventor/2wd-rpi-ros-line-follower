@@ -1,5 +1,11 @@
 #!/usr/bin/python3
 
+"""
+This script declares a Motor class which uses the PCA9685 PWM controller
+to control the speeds of the motors connected to the motor driver HAT.
+
+"""
+
 from PCA9685 import PCA9685
 import time
 

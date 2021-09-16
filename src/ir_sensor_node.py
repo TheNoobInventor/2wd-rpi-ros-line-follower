@@ -1,5 +1,10 @@
 #!/usr/bin/env python3
 
+"""
+This script initializes a ROS node that publishes data about the values 
+returned by the 5 channel infrared sensor, through the topic 'infra_readings'
+"""
+
 #--- Import packages
 import rospy
 from rpi_car_line_follower.msg import IrSensor

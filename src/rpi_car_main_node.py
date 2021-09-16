@@ -1,5 +1,12 @@
 #!/usr/bin/env python3
 
+""" 
+
+This is the main script in the ROS package that moves the robot based on the 
+subscribed infrared sensor data in the 'infra_readings' topic.
+
+"""
+
 #--- Import packages
 import rospy
 from motor import Motor
