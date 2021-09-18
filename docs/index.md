@@ -174,6 +174,7 @@ In the Graphical User Interface (GUI) that opens up, click on check-button on th
 ## Future work/suggestions
 
 Some suggestions for upgrades include:
+
 - Moving project over to ROS2
 
 - Employing a better power solution using a set of 18650 batteries instead of the 9V battery
