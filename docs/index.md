@@ -158,7 +158,7 @@ The motor speeds were obtained iteratively through trial and error.
 
 It was observed that the initial black lines of the race tracks were too thin and caused issues with the infrared sensors accurately returning values. Duck tape was used to widen the track to enable each infrared sensor to read the black line correctly.ll.
 
-### Rqt graph
+## Rqt graph
 
 The nodes and topics relations can be viewed by making use of the ROS tool: ***rqt***. Run rqt by executing this command in the terminal:
 ```
