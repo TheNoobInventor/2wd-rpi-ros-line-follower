@@ -2,7 +2,7 @@
 
 """ 
 
-This is the main script in the ROS package that moves the robot based on the 
+This is the main node in the ROS package that moves the robot based on the 
 subscribed infrared sensor data in the 'infra_readings' topic.
 
 """
@@ -25,7 +25,7 @@ def infra_readings_callback(ir_sensor_data):
     # IR controls
     """    
         ir reading of 0 - black line
-        ir reading of 1 - white 'surface'
+        ir reading of 1 - white part of the paper
     """
     if (ir_1 == 1 and ir_2 == 1 and ir_3 == 0 and ir_4 == 1 and ir_5 == 1):
         # Move robot forward

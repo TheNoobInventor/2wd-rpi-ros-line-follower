@@ -8,6 +8,7 @@ The components used in this project are as follows:
 
 - 2 wheeled drive robot chassis
 - Raspberry Pi 4
+- Monitor, keyboard and mouse for initial setup
 - Motor driver HAT (Waveshare)
 - 2 x standoff spacers
 - 5-channel infrared sensor (Waveshare)
@@ -24,6 +25,13 @@ The 5-channel infrared sensor from Waveshare are shown in the figures below:
 <p float="center">
   <img src=images/ir_front.jpg width="400">
   <img src=images/ir_back.jpg width="400">
+</p>
+
+The front, back and side views of the Motor driver HAT are as shown:
+<p float="center">
+  <img src=images/motord_front.jpg width="400">
+  <img src=images/motord_back.jpg width="400">
+  <img src=images/motord_side.jpg width="400">
 </p>
 
 ### Assembly
@@ -59,6 +67,8 @@ The fully assembled robot is shown in the following images:
 ### Software architecture
 **Raspberry Pi OS** is the operating system used on the Raspberry Pi 4. The download and installation procedure can be found [here](https://www.raspberrypi.org/software/). ROS 1 Noetic is the version of ROS used in this project and can be installed following this [guide](https://www.hackster.io/shahizat005/lidar-integration-with-ros-noetic-on-raspberry-pi-os-8ea140).
 
+For ease of access, debugging and mobility, the Raspberry Pi (and further robot operations) is setup in a headless or remote mode using the [VNC Viewer](https://www.raspberrypi.org/documentation/computers/remote-access.html#vnc) or [ssh](https://www.raspberrypi.org/documentation/computers/remote-access.html#ssh) for more advanced users.
+
 ### Package install and setup
 
 Once Raspberry Pi OS and ROS Noetic have been successfully setup, the next step is to download and setup the ROS package in this repository. 
@@ -67,7 +77,7 @@ Open up a terminal window and navigate to the source folder in your ROS workspac
 ```
 git clone https://github.com/TheNoobInventor/2wd-rpi-ros-line-follower.git
 ```
-The motor driver HAT uses Inter-Integrated Circuit (I2C) serial interface to communicate with the Raspberry Pi. This interface needs to be enabled in Raspberry Pi OS, as it is disabled by default. To do this, click on the ***RPi Home*** button, navigate to ***Preferences***, then ***Raspberry Pi Configuration*** to ***I2C*** and finally click on the ***Enable*** radio button. Then reboot the RPi for this change to be effected.
+The motor driver HAT uses Inter-Integrated Circuit (I2C) serial interface to communicate with the Raspberry Pi. This interface needs to be enabled in Raspberry Pi OS, which is disabled by default. To do this, click on the ***RPi Home*** button, navigate to ***Preferences***, then ***Raspberry Pi Configuration*** to ***I2C*** and finally click on the ***Enable*** radio button. Then reboot the RPi for this change to be effected.
 
 #### Build package
 ---
@@ -78,62 +88,103 @@ catkin_make
 ```
 #### Custom message
 ---
-A custom message - ```IrSensor.msg``` in the ```msg``` folder -  of type int32, was created for the different channels of the infrared sensor to for the infrared sensor data
+A custom message - ```IrSensor.msg``` in the ```msg``` folder -  of type int32, was created to store data outputted from the different channels of the infrared sensor.
 
 #### Run package nodes
 ---
-Explin rospkg (not everyone might need it), smbus (what for?)
+There are two ROS nodes -- written in **Python3** -- in this package in the ```src``` directory:
+
+```ir_sensor_node.py``` - this publishes data about the values 
+returned by the 5 channel infrared sensor, through the topic 'infra_readings' 
+
+```rpi_car_main_node.py``` - this node subscribes to the infrared sensor data in the 'infra_readings' topic and uses this data to control the robot to move around the track(s).
+
+Before running these nodes, the following python packages will need to be installed - if they are not already installed:
+
+```rospkg``` - this provides basic utilities for querying information about ROS packages and stacks.
+
+```smbus``` - this package is required by the PCA9685 PWM controller in order to use the i2c serial interface.
+
+Open up a new terminal window and run the following command:
 ```
 pip3 install rospkg && pip3 install smbus
 ```
-Talk about a bit about the directory structure...where the files can be found...which one is the main what the other files do etc
+In addition to the node files previously introduced, these two files are needed in this package:
 
-written in **Python 3**
+```PCA9685.py``` - this is a low-level driver script to use the PCA9865 PWM controller employed by the motor driver HAT to control the motors.
 
-chmod the executables
+```motor.py```- this is a motor class which uses the PCA9685 PWM controller to control the speeds of the motors connected to the motor driver HAT.
+
+In order to run the nodes, the files first need to be made executable. This can be achieved by running this command in a terminal window:
 ```
-chmod +x ir_sensor_node.py rpi_car_main_node.py PCA9685.py motor.py
+chmod +x ir_sensor_node.py rpi_car_main_node.py
 ```
 
-echo topic before cutting to the car video (might need a brief video showing the sensors work over a white and black surface or?)
-
-make use of launch file
-
-
-launch file--say where it is, what nodes it launches and all. or should we just output the file contents here?
-
+Both nodes can be started up at once by using the launch file ```rpi_car.launch``` in the ```src/launch``` directory. Execute the following commad:
 ```
 roslaunch rpi_car_line_follower rpi_car.launch
 ```
-
+For debugging purposes, the infrared sensor data can be viewed by echoing the data from the 'infra_readings' topic in a separate terminal window:
+```
 rostopic echo /infra_readings
+```
 
-### Rqt graph
+## Race tracks
 
-<p align="center">
-  <img src=images/rosgraph.png>
-</p>
-
-## Tracks
+The following race tracks are used to test out the ROS package:
 
 <p float="left">
   <img src=images/round_track.jpg width="400">
+</p>
+<p float="right">
   <img src=images/fig_8.jpg width="400">
 </p>
 
+With the robot placed on the black line of the track, the launch file is executed. The main node, ```rpi_car_main_node.py```, attempts to keep the robot on the black line whilst moving around the track. It uses data from the infrared sensors - which return 0 if they are over a black line or 1 if they are over the white part of the track. These numbers are used in varying the speeds of the motor to get the robot to follow the line. This process is shown in the following code block from the main node:
+
+```
+if (ir_1 == 1 and ir_2 == 1 and ir_3 == 0 and ir_4 == 1 and ir_5 == 1):
+    # Move robot forward
+    Motor.MotorRun(0, 'forward', 70)
+    Motor.MotorRun(1, 'forward', 70)
+elif (ir_1 == 1 and ir_2 == 0 and ir_3 == 0 and ir_4 == 1 and ir_5 == 1):
+    # Move robot slightly left
+    Motor.MotorRun(0, 'forward', 65)
+    Motor.MotorRun(1, 'forward', 70)
+  ...
+```
+
+The motor speeds were obtained iteratively through trial and error.
+
+It was observed that the initial black lines of the race tracks were too thin and caused issues with the infrared sensors accurately returning values. Duck tape was used to widen the track to enable each infrared sensor to read the black line correctly.ll.
+
+### Rqt graph
+
+The nodes and topics relations can be viewed by making use of the ROS tool: ***rqt***. Run rqt by executing this command in the terminal:
+```
+rqt
+```
+In the Graphical User Interface (GUI) that opens up, click on check-button on the 'infra_readings' topic. Afterward, navigate to ***Plugins*** in the menu then to ***Introspection*** and click on ***Node graph***. This will output a window with the following image showing the relationship between the nodes and the 'infra_readings' topic:
+
+<p align="center"><img src=images/rosgraph.png> </p>
+
 ## Video demonstration
 
-## Observations
-
-Initial width of line was too thin, had to widen it using duck tape to enable the ir sensor to read the line well.
-
+(to be published)
 ## Future work/suggestions
-- Move project to ROS2
-- Better power solution using 18560 batteries?
+
+Some suggestions for upgrades include:
+- Moving project over to ROS2
+- Employing a better power solution using a set of 18650 batteries instead of the 9V battery
+- Adding more sensors to increase the complexity
 
 ## References
 Reference motor drive and code used, sensors used etc.
 
-https://www.waveshare.com/wiki/Motor_Driver_HAT
+- [Motor Driver HAT](https://www.waveshare.com/wiki/Motor_Driver_HAT)
 
-(To be completed)
+- [Infrared Sensor](https://www.waveshare.com/wiki/Tracker_Sensor)
+
+- [Rospkg](https://rospkg.readthedocs.io/en/latest/)
+
+- [smbus package](https://pypi.org/project/smbus2/)
