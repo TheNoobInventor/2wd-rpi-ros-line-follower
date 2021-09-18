@@ -38,6 +38,8 @@ The 2 wheeled robot chassis is assembled using the guide shown [here](https://ww
 | IR4 | Green | 22 | GPIO13 |
 | IR5 | White | 24 | GPIO19 |
 
+The red and black cables are connected to a 5V and ground (GND) GPIO pins respectively.
+
 The RPi was placed on a 3D printed platform using double-sided tape, which was mounted to the chassis also with double-sided tape. 
 
 One end of the cables from the motors were soldered with the other end connected to the motor driver HAT. The motor driver HAT is powered using the 9V battery via the alligator cables. 
@@ -52,7 +54,6 @@ The fully assembled robot is shown in the following images:
   <img src=images/bottom.jpg width="400">
 </p>
 
-
 ## Software
 
 ### Software architecture
@@ -62,7 +63,7 @@ The fully assembled robot is shown in the following images:
 
 Once Raspberry Pi OS and ROS Noetic have been successfully setup, the next step is to download and setup the ROS package in this repository. 
 
-Navigate to the source folder in your ROS workspace (```ros_catkin_ws/src``` in my case) and clone this repository by executing the following command in the terminal:
+Open up a terminal window and navigate to the source folder in your ROS workspace (```ros_catkin_ws/src``` in my case) and clone this repository by executing the following command in the terminal:
 ```
 git clone https://github.com/TheNoobInventor/2wd-rpi-ros-line-follower.git
 ```
@@ -70,19 +71,21 @@ The motor driver HAT uses Inter-Integrated Circuit (I2C) serial interface to com
 
 #### Build package
 ---
-go one step up and build packages:
+To build the package, move up one level to the main ROS workspace (```ros_catkin_ws```) and run the following command in the terminal:
+
 ```
 catkin_make
 ```
 #### Custom message
 ---
-IrSensor.msg in msg folder for the infrared sensor data
+A custom message - ```IrSensor.msg``` in the ```msg``` folder -  of type int32, was created for the different channels of the infrared sensor to for the infrared sensor data
 
 #### Run package nodes
 ---
-pip3 install rospkg (not everyone might need to do this)
-pip3 install smbus (explain what it is)
-
+Explin rospkg (not everyone might need it), smbus (what for?)
+```
+pip3 install rospkg && pip3 install smbus
+```
 Talk about a bit about the directory structure...where the files can be found...which one is the main what the other files do etc
 
 written in **Python 3**
