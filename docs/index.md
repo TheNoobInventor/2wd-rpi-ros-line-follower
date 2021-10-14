@@ -170,7 +170,10 @@ In the Graphical User Interface (GUI) that opens up, click on check-button on th
 
 ## Video demonstration
 
-(to be published)
+The following video walks through the setup procedure for this project and shows the robot moving around both tracks whilst following the black line.
+
+[<img src="images/side.jpg" width="50%">](https://youtu.be/u9ZQiseMk1M)
+
 ## Future work
 
 Some suggestions for upgrades include:
