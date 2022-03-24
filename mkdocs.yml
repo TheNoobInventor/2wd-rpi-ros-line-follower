@@ -1,5 +1,7 @@
 site_name: 2 Wheeled Drive Raspberry Pi Line Follower running ROS1 Noetic
-# site_url: https://example.com/
+site_url: 'https://thenoobinventor.github.io/2wd-rpi-ros-line-follower/'
+use_directory_urls: False
+edit_uri: ""
 
 theme:
   name: material
