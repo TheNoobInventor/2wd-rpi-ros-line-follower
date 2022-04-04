@@ -185,7 +185,6 @@ Some suggestions for upgrades include:
 - Adding more sensors to increase the complexity.
 
 ## References
-Reference motor drive and code used, sensors used etc.
 
 - [Motor Driver HAT](https://www.waveshare.com/wiki/Motor_Driver_HAT)
 
