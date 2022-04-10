@@ -156,7 +156,11 @@ elif (ir_1 == 1 and ir_2 == 0 and ir_3 == 0 and ir_4 == 1 and ir_5 == 1):
 
 The motor speeds were obtained iteratively through trial and error.
 
-It was observed that the initial black lines of the race tracks were too thin and caused issues with the infrared sensors accurately returning values. Duck tape was used to widen the track to enable each infrared sensor to read the black line correctly.ll.
+It was observed that the initial black lines of the race tracks were too thin and caused issues with the infrared sensors accurately returning values. Duck tape was used to widen the track to enable each infrared sensor to read the black line correctly.
+
+The figure below visualizes the robot movememnts to be made based on the location of the infrared sensors in relation to the black line of the race track. 
+
+<p align="center"><img src=images/sensor_map.png> </p>
 
 ## Rqt graph
 
