@@ -22,13 +22,13 @@ The components used in this project are as follows:
 - Duck tape
 
 The 5-channel infrared sensor from Waveshare are shown in the figures below:
-<p float="center">
+<p align="center">
   <img src=images/ir_front.jpg width="400">
   <img src=images/ir_back.jpg width="400">
 </p>
 
 The front, back and side views of the Motor driver HAT are as shown:
-<p float="center">
+<p align="center">
   <img src=images/motord_front.jpg width="400">
   <img src=images/motord_back.jpg width="400">
   <img src=images/motord_side.jpg width="400">
@@ -56,7 +56,7 @@ Finally, the raspberry pi is powered by the power bank, via a USB type-A to USB 
 
 The fully assembled robot is shown in the following images:
 
-<p float="center">
+<p align="center">
   <img src=images/side.jpg width="400">
   <img src=images/top.jpg width="400">
   <img src=images/bottom.jpg width="400">
