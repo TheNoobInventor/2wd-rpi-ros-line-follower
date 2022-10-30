@@ -21,7 +21,7 @@ The components used in this project are as follows:
 - Double-sided tape
 - Duck tape
 
-The 5-channel infrared sensor from Waveshare are shown in the figures below:
+The 5-channel infrared sensor from Waveshare is shown in the figures below:
 <p align="center">
   <img src=images/ir_front.jpg width="400">
   <img src=images/ir_back.jpg width="400">
